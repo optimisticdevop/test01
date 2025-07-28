@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome Payment Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2575fc;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #2575fc;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #1a5ed8;
+    }
+
+    .greeting {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .pay-link {
+      margin-top: 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      background: #28a745;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+    }
+
+    .pay-link:hover {
+      background: #218838;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="mainBox">
+    <h1>Welcome to Payment Page</h1>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="greetUser()">Submit</button>
+  </div>
+
+  <script>
+    function greetUser() {
+      const name = document.getElementById('name').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+
+      const container = document.getElementById('mainBox');
+      const paymentLink = 'upi://pay?pa=bhagwane.sarthak2021@okaxis&pn=Payment&am=10&cu=INR'; 
+      container.innerHTML = `
+        <h1>Hello, ${name} 👋</h1>
+        <p class="greeting"> <br> chal ab paisa nikal .</p>
+        <a class="pay-link" href="${paymentLink}" target="_blank">Proceed to Payment</a>
+        <footer>© 2025 UPI Payment Portal wali bakchodi </footer>
+      `;
+    }
+  </script>
+</body>
+</html>
